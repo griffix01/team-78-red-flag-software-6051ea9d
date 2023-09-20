@@ -15,10 +15,10 @@ class GameStatus:
     move_count: int = 0
 
 class Direction(Enum):
-    NORTH = "n"
-    SOUTH = "s"
-    EAST = "e"
-    WEST = "w"
+    UP = "w"
+    DOWN = "s"
+    LEFT = "a"
+    RIGHT = "d"
 
 class CharacterNotFoundException(Exception):
     pass

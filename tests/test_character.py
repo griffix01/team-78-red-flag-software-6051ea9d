@@ -13,10 +13,11 @@ class TestEnterMap(TestCase):
         testobj = Character("name")
         testmap = fakeMap()
         testobj.enterMap(testmap)
-        self.assertNotEquals(testobj.position, [])
+        self.assertNotEqual(testobj.position, [])
+
 class TestCharacterPositionUpdates(TestCase):
     def test_init(self):
         testobj = Character("name")
         testmap = fakeMap()
-        testobj.move()
+        testobj.move("w")
         self.assertEqual(testobj.position, testmap.calculatePosition([0,0], "w"))

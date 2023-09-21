@@ -11,4 +11,4 @@ class Character:
         self.position = Position(0, 0)
 
     def move(self, direction):
-        self.position = [1,1]
+        pass

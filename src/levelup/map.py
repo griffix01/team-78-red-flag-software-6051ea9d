@@ -1,7 +1,9 @@
 from levelup.position import Position
+import math
 
+NUM_POSITIONS = 100
 class Map:
-    numPositions = 100
+    numPositions: int
     minX: int
     minY: int
     maxX: int
@@ -10,8 +12,8 @@ class Map:
     def __init__(self):
         self.minX = 0
         self.minY = 0
-        self.maxX = 9
-        self.maxY = 9
+        self.maxX = math.ceil(math.sqrt(NUM_POSITIONS) - 1)
+        self.maxY = math.ceil(math.sqrt(NUM_POSITIONS) - 1)
 
     def calculatePosition(self, start, direction):
         new = Position(start.x, start.y)

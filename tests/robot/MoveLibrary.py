@@ -6,6 +6,7 @@ class MoveLibrary:
     start_y: int
 
     controller = GameController()
+    self.controller.create_character("name")
 
     def initialize_character_xposition_with(self, x_position):
         self.start_x = x_position

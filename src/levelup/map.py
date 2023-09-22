@@ -24,7 +24,7 @@ class Map:
             new.y -= 1
         elif direction == "a":
             new.x -= 1
-        else:
+        elif direction == "d":
             new.x += 1
         
         if self.validatePosition(new):

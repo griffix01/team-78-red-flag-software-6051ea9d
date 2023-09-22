@@ -21,21 +21,21 @@ class GameApp:
     def create_character(self):
         character = self.prompt("Enter character name", lambda x: len(x) > 0)
         self.controller.create_character(character)
+        print("Welcome, " + self.controller.status.character_name + "!\n")
 
     def move_loop(self):
         while True:
+            print("You are at position (" + str(self.controller.status.currentPosition.x) + ", " + str(self.controller.status.currentPosition.y) + ").")
             response = self.prompt(
                 f"Where would you like to go? {VALID_DIRECTIONS}\n(or ctrl+c to quit)",
                 lambda x: x in VALID_DIRECTIONS,
             )
-            direction = Direction(response)
             try:
-                self.controller.move(direction)
+                self.controller.move(response)
             except InvalidMoveException:
-                print(f"You cannot move {direction}")
+                print(f"\nYou cannot move {Direction(response).name}.\n")
             else:
-                print(f"You moved {direction.name}")
-            print(self.controller.status)
+                print(f"\nYou moved {Direction(response).name}.\n")
 
     def start(self):
         self.create_character()
@@ -43,4 +43,7 @@ class GameApp:
         self.move_loop()
 
     def quit(self):
-        print(f"\n\n{self.controller.status}")
+        #print(f"\n\n{self.controller.status.currentPosition}")
+        print("You started the game at position (0,0).")
+        print("You are currently at position (" + str(self.controller.status.currentPosition.x) + ", " + str(self.controller.status.currentPosition.y) + ").")
+        print("You have made " + str(self.controller.status.moveCount) + " moves in the game.")

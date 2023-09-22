@@ -23,13 +23,13 @@ class TestCreateCharacter(TestCase):
     def test_init(self):
         testController = GameController()
         testController.create_character("name")
-        self.assertEqual(testController.status.characterName, "name")
+        self.assertEqual(testController.status.character_name, "name")
 
 class TestStartGame(TestCase):
     def test_init(self):
         testController = GameController()
         testController.create_character("bob")
         testController.start_game()
-        self.assertEqual(testController.status.characterName, "bob")
+        self.assertEqual(testController.status.character_name, "bob")
         self.assertEqual(testController.status.currentPosition.x, 0)
         self.assertEqual(testController.status.currentPosition.y, 0)
